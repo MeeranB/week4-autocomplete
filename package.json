@@ -1,0 +1,33 @@
+{
+  "name": "week4-autocomplete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACed-Off/week4-autocomplete.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACed-Off/week4-autocomplete/issues"
+  },
+  "homepage": "https://github.com/FACed-Off/week4-autocomplete#readme",
+  "dependencies": {
+    "jest": "^26.1.0",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html"
+    ]
+  }
+}
