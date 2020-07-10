@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My web page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokedex</title>
     <!-- <link rel="icon" href="/favicon.ico"> -->
-    <!-- <link rel="stylesheet" href="/my-styles.css"> -->
-    <meta name="description" content="My web page is a playground for me to learn about web concepts">
+    <link rel="stylesheet" href="main.css" />
+    <meta name="description" content="Pokedex" />
   </head>
   <body>
-    <h1>My web page</h1>
-
-    <div class="entry-container">
-        <form class="" action="" method="" id="the-form">
-          <h2>Search for your pokemon</h2>
-          <input id='input' class='pokemonInput' onkeyup="pokedexFetch()" autofocus></input>
-        </form>
+    <h1>Shivani and Meerans Pokedex!</h1>
+    <section>
+      <div class="entry-container">
+        <div class="search-box">
+          <form class="" action="" method="" id="the-form">
+            <h2>Search for your pokemon</h2>
+            <div class="input-box">
+              <input
+                type="text"
+                id="input"
+                required=""
+                class="pokemonInput"
+                onkeyup="pokedexFetch()"
+                autofocus
+              />
+              <label for="search">Enter Pokemon Here</label>
+            </div>
+          </form>
+        </div>
       </div>
-      <script src="script.js"></script>
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>
