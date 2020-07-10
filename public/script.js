@@ -14,6 +14,7 @@ function pokedexFetch() {
 function searchPokedex(input) {
   //logs filtered list for a specific query
   const query = document.getElementById("input").value;
+  console.log(query);
   const splitInput = input.split("\n");
   const output = splitInput.filter((word) => {
     return word.startsWith(query);
@@ -23,5 +24,16 @@ function searchPokedex(input) {
 
 function showResults(searchOutput) {
   const results = document.getElementById("output");
-  results.innerHTML = searchOutput;
+  //console.log(searchOutput.length);
+  if (searchOutput.length == 0) {
+    results.innerText = "No Results Found";
+  } else {
+    results.innerHTML = searchOutput;
+  }
 }
+
+// function caseInsensitive(string) {
+//   console.log(string.match(/[^a-z-2]/gi));
+// }
+
+// caseInsensitive("hi I");
