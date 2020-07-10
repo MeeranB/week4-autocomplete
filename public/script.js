@@ -1,3 +1,4 @@
+
 function pokedexFetch() {
     fetch("../data/pokedex.txt")
         .then((response) => {
@@ -5,16 +6,19 @@ function pokedexFetch() {
         })
         .then((data) => {
             searchPokedex(data);
-            //raw text file is logged here
-        });
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        })
 }
 
 function searchPokedex(input) {
+    //logs filtered list for a specific query
     const query = document.getElementById('input').value;
-    //Returns filtered list for a specific query
     const splitInput = input.split("\n");
     const output = splitInput.filter((word) => {
         return word.startsWith(query);
     });
     console.log(output.join("\n"));
 }
+
