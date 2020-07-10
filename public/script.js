@@ -14,13 +14,12 @@ document.onreadystatechange = function () {
 };
 
 function searchPokedex(input, query = "A") {
-  //Uses string methods to search pokedex.txt to filter the list of pokemon
+  //Returns filtered list for a specific query
   const splitInput = input.split("\n");
-  const Output = splitInput.filter((word) => {
-    //words first letter is not query
+  const output = splitInput.filter((word) => {
     return word.startsWith(query);
   });
-  console.log(Output.join("\n"));
+  console.log(output.join("\n"));
 }
 
 // const input = document.getElementById('input')
