@@ -1,29 +1,20 @@
-console.log("test");
-
-document.onreadystatechange = function () {
-  if (document.readyState === "complete") {
+function pokedexFetch() {
     fetch("../data/pokedex.txt")
-      .then((response) => {
-        return response.text();
-      })
-      .then((data) => {
-        searchPokedex(data);
-        //raw text file is logged here
-      });
-  }
-};
-
-function searchPokedex(input, query = "A") {
-  //Returns filtered list for a specific query
-  const splitInput = input.split("\n");
-  const output = splitInput.filter((word) => {
-    return word.startsWith(query);
-  });
-  console.log(output.join("\n"));
+        .then((response) => {
+            return response.text();
+        })
+        .then((data) => {
+            searchPokedex(data);
+            //raw text file is logged here
+        });
 }
 
-// const input = document.getElementById('input')
-
-// input.addEventListener('keyup', function(event) {
-//     searchPokedex(event.target.in)
-// })
+function searchPokedex(input) {
+    const query = document.getElementById('input').value;
+    //Returns filtered list for a specific query
+    const splitInput = input.split("\n");
+    const output = splitInput.filter((word) => {
+        return word.startsWith(query);
+    });
+    console.log(output.join("\n"));
+}
