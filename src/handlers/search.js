@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 function searchHandler(request, response) {
-  const query = request.url.split("/")[2]
+  const query = request.url.split("/")[2];
   response.writeHead(200, { "Content-Type": "text/html" });
   fs.readFile(__dirname + "/../../data/pokedex.txt", function (error, file) {
     if (error) {
@@ -9,6 +9,7 @@ function searchHandler(request, response) {
       response.end("<h1>Server Error</h1>");
     } else {
       const searchList = file.toString();
+      console.log(searchList);
       response.end(searchPokedex(searchList, query));
     }
   });
@@ -16,12 +17,12 @@ function searchHandler(request, response) {
 
 function searchPokedex(input, query) {
   const splitInput = input.split("\n");
-  const output = splitInput.filter((word) => {
+  const output = splitInput.filter((pokemon) => {
     //if case insensitive query matches current search list index, return true
-    if (!query) return false
+    if (!query) return false;
     const testQuery = query.toLowerCase();
-    const testWord = word.toLowerCase();
-    return testWord.startsWith(testQuery)
+    const testPokemon = pokemon.toLowerCase();
+    return testPokemon.startsWith(testQuery);
   });
   return output.join("\n");
 }
