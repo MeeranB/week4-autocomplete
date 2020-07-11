@@ -16,7 +16,11 @@ function searchPokedex(input) {
   const query = document.getElementById("input").value;
   const splitInput = input.split("\n");
   const output = splitInput.filter((word) => {
-    return word.startsWith(query);
+    if (query) {
+      return word.startsWith(query);
+    } else {
+      return false
+    }
   });
   showResults(output.join("\n"));
 }
