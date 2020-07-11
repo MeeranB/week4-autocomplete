@@ -4,7 +4,7 @@
 
 > `input.value` returns the value a user types in the input field.
 
-2. The first `.then` reads the response and return as text
+2. The first `.then` reads the response and return as text, the second `.then` takes the data and passes it to the `showResults` function.
 
 3. The `catch()` method deals with the unsuccessul cases.
 
@@ -38,12 +38,4 @@ function showResults(searchOutput) {
     results.innerHTML = searchOutput;
   }
 }
-```
-
-8. The second `.then` ouputs the data passed to the `showResults` function
-
-```javascript
-.then((data) => {
-      showResults(data);
-    })
 ```
