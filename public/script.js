@@ -12,15 +12,14 @@ function pokedexFetch() {
 }
 
 function searchPokedex(input) {
-  //logs filtered list for a specific query
   const query = document.getElementById("input").value;
   const splitInput = input.split("\n");
   const output = splitInput.filter((word) => {
-    if (query) {
-      return word.startsWith(query);
-    } else {
-      return false
-    }
+    //if case insensitive query matches current search list index, return true
+    if (!query) return false
+    const testQuery = query.toLowerCase();
+    const testWord = word.toLowerCase();
+    return testWord.startsWith(testQuery)
   });
   showResults(output.join("\n"));
 }
