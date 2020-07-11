@@ -1,7 +1,6 @@
-
 //Onkeyup when focussed on search input field, send a get request to an endpoint
-const searchField = document.getElementById(input)
-input.addEventListener('keyup', () => {
+const searchField = document.getElementById(input);
+input.addEventListener("keyup", () => {
   fetch(`/search/${input.value}`)
     .then((response) => {
       /* TODO: create /search endpoint which fetches our text file, and compares it to our query
@@ -14,7 +13,7 @@ input.addEventListener('keyup', () => {
     .catch((error) => {
       console.error("Error:", error);
     });
-})
+});
 
 function showResults(searchOutput) {
   const results = document.getElementById("output");

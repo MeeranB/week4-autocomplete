@@ -9,7 +9,7 @@ function searchHandler(request, response) {
       response.end("<h1>Server Error</h1>");
     } else {
       const searchList = file.toString();
-      console.log(searchList);
+      //console.log(searchList);
       response.end(searchPokedex(searchList, query));
     }
   });
