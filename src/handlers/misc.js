@@ -2,6 +2,7 @@ const fs = require("fs");
 
 function miscHandler(request, response) {
   const endpoint = request.url;
+  console.log(endpoint);
 
   const extension = endpoint.split(".")[1];
   const headers = {
