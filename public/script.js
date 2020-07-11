@@ -18,5 +18,15 @@ function searchPokedex(input) {
   const output = splitInput.filter((word) => {
     return word.startsWith(query);
   });
-  console.log(output.join("\n"));
+  showResults(output.join("\n"));
+}
+
+function showResults(searchOutput) {
+  const results = document.getElementById("output");
+  //console.log(searchOutput.length);
+  if (searchOutput.length == 0) {
+    results.innerText = "No Results Found";
+  } else {
+    results.innerHTML = searchOutput;
+  }
 }
