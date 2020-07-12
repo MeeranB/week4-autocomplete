@@ -59,7 +59,12 @@ function searchHandler(request, response) {}
 ```javascript
 const query = request.url.split("/")[2];
 ```
-
+ - Following our example of the `/search/p` request the query variable is evaluated as follows:
+    - `request.url` is evaluated as the string `"/search/p"`
+    - This string is then passed through the [split string method](https://www.w3schools.com/jsref/jsref_split.asp)
+    - This splits the string into the following array `[ "" , "search", "p" ]`
+    - We then take the 2nd index `"p"` and assign it to our query variable
+    
 3. `fs.readFile` read the contents of a file of the file path.
 4. The first `if` statement deals with any errors with the file system
 
