@@ -4,6 +4,12 @@
 
 > `input.value` returns the value a user types in the input field.
 
+- Let us assume that the current input value is the string "p"
+- This get-request is handled by the router, which accesses the url property of our request object, which in this case is `/search/p`
+- The router function then compares the url to the if-conditionals, running the blocks where true statements are parsed
+- In this case, the only statement that is true is the `url.startsWith("/search")`
+- This code block calls our searchHandler function with the request object (that has the request url of `/search/p`
+
 2. The first `.then` reads the response and return as text, the second `.then` takes the data and passes it to the `showResults` function.
 
 3. The `catch()` method deals with the unsuccessul cases.
