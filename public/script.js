@@ -1,5 +1,4 @@
 //Onkeyup when focussed on search input field, send a get request to an endpoint
-const searchField = document.getElementById(input);
 input.addEventListener("keyup", () => {
   fetch(`/search/${input.value}`)
     .then((response) => {
