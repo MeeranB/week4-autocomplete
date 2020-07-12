@@ -12,7 +12,10 @@
 
 2. The first `.then` reads the response and return as text, the second `.then` takes the data and passes it to the `showResults` function.
 
-3. The `catch()` method deals with the unsuccessul cases.
+- Upon the asynchronous' fetch call's return, we then read the `response.txt` property of the response object created by the searchHandler. This refers to the response body set by the handler, the evaluation of which is described below
+- Assuming the `response.text` property is successfuly read we pass this string into our `showResults` function which displays this output in the DOM by setting the `innerText` properties of the output div to the `response.text` value of the response object, or it will display that the appropriate text if the `response.text` value is null due to the search output being empty.
+
+3. The `catch()` method deals with the unsuccessful case where one of the fetch blocks fails.
 
 ```javascript
 input.addEventListener("keyup", () => {
