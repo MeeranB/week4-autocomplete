@@ -102,6 +102,8 @@ response.end(searchPokedex(searchList, query));
 - The parameters we pass in this case are:
    - `searchList` which is the `pokedex.txt` file that was read and subsequently converted to a buffer and back into a string
    -  The `query` which refers to the string "p" following our example
+   
+7. The searchPokedex function
  
 ```javascript
 function searchPokedex(input, query) {
@@ -116,3 +118,12 @@ function searchPokedex(input, query) {
   return output.join("\n");
 }
 ```
+
+- This function defines how to take the input (`pokedex.txt`) and the query (`"p"`) and return the expected output as a string to be used as a response body
+- We first [split](https://www.w3schools.com/jsref/jsref_split.asp) the `pokedex.txt` file into an array where each index represents each pokemon
+- We then [filter](https://www.w3schools.com/jsref/jsref_filter.asp) this array to remove results we do not want in our output array
+   - The filter callback takes each index value (`pokemon`) and if returns true, will NOT remove the index from the array
+   - The `if (!query) return false` guard clause will remove the entire array if the query is empty or evaluates to false.
+      - Note that if there are values in our pokedex.txt that evaluate to false, they will not be dealt with correctly here, as they would be removed from the output despite a query match
+   - `testQuery` and `testPokemon` variables are then created as lowercase versions of the respective variables, this is so that we can do a case insensitive search of our input, if we were not to do this, our query "p" would not match any input that started with the character "P" as "Pikachu".startsWith("p") would return false, subsequently removing a valid input index from our output array. Setting all the characters in both strings to lowercase remedies this issue.
+- Our searchPokedex function returns a string at this point, which is our filtered input array joined with newlines as delimiters, this is the same format as the expected input string parameter
