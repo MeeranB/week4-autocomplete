@@ -1,5 +1,4 @@
 const homeHandler = require("./handlers/home");
-const textHandler = require("./handlers/text");
 const miscHandler = require("./handlers/misc");
 const searchHandler = require("./handlers/search");
 
