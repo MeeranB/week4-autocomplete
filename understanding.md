@@ -65,7 +65,14 @@ const query = request.url.split("/")[2];
     - This splits the string into the following array `[ "" , "search", "p" ]`
     - We then take the 2nd index `"p"` and assign it to our query variable
     
+ - We then begin building our response object by setting the `content-type` header to `index.html`
+    
 3. `fs.readFile` read the contents of a file of the file path.
+
+  - The file path read in at this point is our locally stored `pokedex.text` file
+  - The second parameter in the `readFile` method is a function which is called once the text file has been parsed
+  - The `readFile` method creates the constant `file` which is call-able within our callback function here
+  
 4. The first `if` statement deals with any errors with the file system
 
 ```javascript
@@ -73,13 +80,7 @@ const query = request.url.split("/")[2];
     if (error) {
       response.writeHead(500, { "Content-Type": "index/html" });
       response.end("<h1>Server Error</h1>");
-    } else {
-      const searchList = file.toString();
-      //console.log(searchList);
-      response.end(searchPokedex(searchList, query));
-    }
-  });
-}
+    } 
 ```
 
 5. The `else` statement deals with the file returned. The file currently looks like a chunk of memory `<Buffer 53 6f...>`
