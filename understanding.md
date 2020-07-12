@@ -2,10 +2,6 @@
 
 1. Access the input field. On `keyup` send a get request to the `/search/${input.value}`
 
-```javascript
-const searchField = document.getElementById(input);
-```
-
 > `input.value` returns the value a user types in the input field.
 
 2. The first `.then` reads the response and return as text, the second `.then` takes the data and passes it to the `showResults` function.
