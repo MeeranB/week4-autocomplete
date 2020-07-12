@@ -73,7 +73,7 @@ const query = request.url.split("/")[2];
   - The second parameter in the `readFile` method is a function which is called once the text file has been parsed
   - The `readFile` method creates the constant `file` which is call-able within our callback function here
   
-4. The first `if` statement deals with any errors with the file system
+4. The first `if` statement deals with any error caused by an invalid file path being read
 
 ```javascript
   fs.readFile(__dirname + "/../../data/pokedex.txt", function (error, file) {
@@ -97,6 +97,12 @@ const searchList = file.toString();
 response.end(searchPokedex(searchList, query));
 ```
 
+- This is the point at which we define the response body to be sent back with our "p" query
+- The processed string that we set the response body to is created by our function call to the searchPokedex function
+- The parameters we pass in this case are:
+   - `searchList` which is the `pokedex.txt` file that was read and subsequently converted to a buffer and back into a string
+   -  The `query` which refers to the string "p" following our example
+ 
 ```javascript
 function searchPokedex(input, query) {
   const splitInput = input.split("\n");
