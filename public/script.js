@@ -1,7 +1,7 @@
 //Onkeyup when focussed on search input field, send a get request to an endpoint
-const searchField = document.getElementById(input);
-input.addEventListener("keyup", () => {
-  fetch(`/search/${input.value}`)
+const pokeinput = document.getElementById("poke-input");
+pokeinput.addEventListener("keyup", () => {
+  fetch(`/search/${pokeinput.value}`)
     .then((response) => {
       /* TODO: create /search endpoint which fetches our text file, and compares it to our query
       which is given by our endpoint which is created by input.value */
