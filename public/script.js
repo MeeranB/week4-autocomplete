@@ -1,25 +1,9 @@
-//Onkeyup when focussed on search input field, send a get request to an endpoint
-const pokeinput = document.getElementById("poke-input");
-pokeinput.addEventListener("keyup", () => {
-  fetch(`/search/${pokeinput.value}`)
-    .then((response) => {
-      /* TODO: create /search endpoint which fetches our text file, and compares it to our query
-      which is given by our endpoint which is created by input.value */
-      return response.text();
-    })
-    .then((data) => {
-      showResults(data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-});
+const { pokeFetch } = require("./pokefetch");
 
-function showResults(searchOutput) {
-  const results = document.getElementById("output");
-  if (searchOutput.length == 0) {
-    results.innerText = "No Results Found";
-  } else {
-    results.innerHTML = searchOutput;
-  }
-}
+//Onkeyup when focussed on search input field, send a get request to an endpoint
+document.onreadystatechange = function () {
+  const pokeinput = document.getElementById("poke-input");
+  pokeinput.addEventListener("keyup", () => {
+    pokeFetch(pokeinput.value);
+  });
+};
