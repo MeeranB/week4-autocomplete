@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 //
-const supertest = require("supertest");
 const testingLib = require("@testing-library/dom");
 const fetchMock = require("fetch-mock");
 const fs = require("fs");
