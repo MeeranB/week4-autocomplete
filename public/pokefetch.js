@@ -1,7 +1,5 @@
 const { showResults } = require("./showResults");
-const pokeFetch = (value) => {
-  console.log(value);
-
+const pokeFetch = (value) =>
   fetch(`/search/${value}`)
     .then((response) => {
       /* TODO: create /search endpoint which fetches our text file, and compares it to our query
@@ -14,7 +12,6 @@ const pokeFetch = (value) => {
     .catch((error) => {
       console.error("Error:", error);
     });
-};
 module.exports = {
   pokeFetch,
 };
