@@ -1,8 +1,5 @@
-const { pokeFetch } = require("./pokefetch");
+// const { pokeFetch } = require("./pokefetch");
+import { pokeFetch } from "./pokefetch.js";
 
 const pokeinput = document.getElementById("poke-input");
-console.log(pokeinput);
-pokeinput.addEventListener("keyup", () => {
-  console.log(pokeinput.value);
-  pokeFetch(pokeinput.value);
-});
+pokeinput.addEventListener("keyup", () => pokeFetch(pokeinput.value));

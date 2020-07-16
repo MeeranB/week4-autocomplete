@@ -6,7 +6,7 @@ const { showResults } = require("./showResults");
 const { pokeFetch } = require("./pokefetch");
 const fetchMock = require("fetch-mock");
 jest.mock("./showResults", () => ({
-  showResults: jest.fn((data) => console.log(data)),
+  showResults: jest.fn((data) => data),
 }));
 
 // jest.spyOn(showResults, "showResults");
@@ -27,6 +27,7 @@ describe("pokefetch tests", () => {
     }); //call pokedexFetch
 
     await pokeFetch("y");
-    await expect(showResults).toHaveBeenCalled();
+    expect(showResults).toHaveBeenCalled();
+    expect(showResults).toHaveBeenCalledWith("Yamask");
   });
 });
