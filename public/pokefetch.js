@@ -1,7 +1,7 @@
 // const { showResults } = require("./showResults");
 import { showResults } from "./showResults.js";
 
-export const pokeFetch = async function (value) {
+export const pokeFetch = function (value) {
   // This is called
   // showResults(value);
   return fetch(`/search/${value}`)
@@ -12,6 +12,7 @@ export const pokeFetch = async function (value) {
     })
     .then((data) => {
       showResults(data);
+      // showResults(data);
     })
     .catch((error) => {
       console.error("Error:", error);

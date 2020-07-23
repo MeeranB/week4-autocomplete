@@ -35,18 +35,20 @@ describe("searchPokedex tests", () => {
   });
   it("should call show result", async () => {
     const pokeinput = document.getElementById("poke-input");
-    const fm = fetchMock.getOnce("begin:/search", {
+    fetchMock.getOnce("begin:/search", {
       status: 200,
       body: "Yamask",
-    }); //call pokedexFetch
-
+    });
     // const x = await pokeinput.dispatchEvent(
     //   new KeyboardEvent("keyup", { key: "y" })
     // );
 
-    await testingLib.fireEvent.keyUp(pokeinput, { key: "y", code: "Keyy" });
-    await expect(spy).toHaveBeenCalled();
+    testingLib.fireEvent.keyUp(pokeinput, { key: "y", code: "Keyy" });
+    expect(spy).toHaveBeenCalled();
 
-    // await expect(showResults).toHaveBeenCalledTimes(1);a
+    await testingLib.waitFor(() => {
+      expect(showResults).toHaveBeenCalledTimes(1);
+      expect(showResults).toHaveBeenCalledWith("Yamask");
+    });
   });
 });

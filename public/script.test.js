@@ -85,7 +85,7 @@ document.body.innerHTML = html.toString();
 //     // await testingLib.waitFor(() => expect(spy).toHaveBeenCalled());
 //   });
 // });
-
+// This like reading the script tag in a html
 const script = require("./script");
 
 describe("searchPokedex tests", () => {
@@ -97,9 +97,9 @@ describe("searchPokedex tests", () => {
     fetchMock.getOnce("begin:/search", {
       status: 200,
       body: "Yamask",
-    }); //call pokedexFetch
+    });
 
-    await pokeinput.dispatchEvent(new KeyboardEvent("keyup", { key: "y" }));
+    pokeinput.dispatchEvent(new KeyboardEvent("keyup", { key: "y" }));
     const results = document.getElementById("output");
     await testingLib.waitFor(() => expect(results.innerHTML).toBe("Yamask"));
   });

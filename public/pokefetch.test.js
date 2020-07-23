@@ -1,20 +1,14 @@
-// jest.mock("./pokefetch", () => ({
-//   ...jest.requireActual("./pokefetch"),
-//   //   showResults: jest.fn(),
-// }));
 const { showResults } = require("./showResults");
 const { pokeFetch } = require("./pokefetch");
 const fetchMock = require("fetch-mock");
+
+// this mocks the whole file. You need to mock all the fucntions you need this way
+
 jest.mock("./showResults", () => ({
+  // Use the following line to add all the other functions you do not wish to change in the file and just overwrite the functions you want to mock
+  // ...jest.requireActual("./showResults"),
   showResults: jest.fn((data) => data),
 }));
-
-// jest.spyOn(showResults, "showResults");
-// showResults.showResults.mockImplementation((data) => {
-//   console.log("data", data);
-//   return data;
-// });
-// showResultsx.showResults = jest.fn();
 
 describe("pokefetch tests", () => {
   beforeAll(() => {
@@ -24,7 +18,7 @@ describe("pokefetch tests", () => {
     fetchMock.getOnce("begin:/search", {
       status: 200,
       body: "Yamask",
-    }); //call pokedexFetch
+    });
 
     await pokeFetch("y");
     expect(showResults).toHaveBeenCalled();
